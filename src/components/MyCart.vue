@@ -23,7 +23,7 @@ const state = reactive({
 <div class="flex flex-col align-middle justify-center">
       <h4 class="text-center mx-auto bg-lime-300" title="">{{title}}</h4>
       <div class="bg-[#171717] h-[300px] w-[300px] max-h-[300px] mx-auto flex flex-row flex-wrap scroll-smooth overflow-y-scroll">        
-      <li class="flex" v-for="item in main.counter">      
+      <li class="flex" v-for="item in main.cartCounter">      
         <LittlePin class="flex flex-row" />      
       </li>
     </div>

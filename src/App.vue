@@ -2,6 +2,7 @@
 import { useCounterStore } from "./stores/useCounter";
 import { storeToRefs } from "pinia";
 import MyMarket from './components/MyMarket.vue'
+import MyCart from './components/MyCart.vue'
 
 
 const main = useCounterStore();
@@ -25,8 +26,8 @@ function checkout() {
   <h1 class="">Superstore</h1>
 
   <div class="flex flex-row justify-center align-middle w-[800px] mx-auto">
-    <MyMarket title="oiiiooooooooo" />
-    <div class="bg-[#171717] w-[300px] h-[300px] mx-auto"></div>
+    <MyMarket title="Pinia Market" />
+    <MyCart title="Your Cart" />
   </div>
 
   <p>The number of fruits available in the market: {{ counter }}</p>
