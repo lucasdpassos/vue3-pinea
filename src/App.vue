@@ -10,6 +10,8 @@ const main = useCounterStore();
 
 const { counter, cartCounter, name, age, job } = storeToRefs(main);
 
+const open = false
+
 const orderResume = "";
 
 function checkout() {
@@ -37,7 +39,14 @@ function checkout() {
   <div class="flex flex-row mx-auto justify-center align-middle">
   <Button class="p-2" @click="main.addOne" btnTitle="Buy One" />
   <Button class="p-2" @click="checkout()" btnTitle="Checkout" />
+  <Button class="p-2" @click="open = true" btnTitle="Checkout" />
   </div>
+
+  <div class="w-[300px] h-[300px] bg-black" v-if="open">
+    <p>aaaaaaaaaaaaaaaaaai</p>
+  </div>
+
+ 
 </template>
 
 
