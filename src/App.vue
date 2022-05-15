@@ -4,13 +4,16 @@ import { storeToRefs } from "pinia";
 import MyMarket from './components/MyMarket.vue'
 import MyCart from './components/MyCart.vue'
 import Button from './components/Button.vue'
+import { VueFinalModal } from 'vue-final-modal'
+import CheckoutModal from './components/CheckoutModal.vue'
 
 
 const main = useCounterStore();
-
 const { counter, cartCounter, name, age, job } = storeToRefs(main);
 
-const open = false
+ 
+
+
 
 const orderResume = "";
 
@@ -22,6 +25,31 @@ function checkout() {
   };
   console.log(order);
   main.reset();
+}
+</script>
+
+<script lang="ts">
+export default {
+  data: () => ({
+    showModal: false
+  }),
+  methods: {
+    clickOutside() {
+      alert('click-outside')
+    },
+    beforeOpen() {
+      alert('beforeOpen')
+    },
+    opened() {
+      alert('opened')
+    },
+    beforeClose() {
+      alert('beforeClose')
+    },
+    closed() {
+      alert('closed')
+    }
+  }
 }
 </script>
 
@@ -39,13 +67,15 @@ function checkout() {
   <div class="flex flex-row mx-auto justify-center align-middle">
   <Button class="p-2" @click="main.addOne" btnTitle="Buy One" />
   <Button class="p-2" @click="checkout()" btnTitle="Checkout" />
-  <Button class="p-2" @click="open = true" btnTitle="Checkout" />
+  <Button class="p-2" @click="showModal = !showModal" btnTitle="Checkout" />
   </div>
 
-  <div class="w-[300px] h-[300px] bg-black" v-if="open">
-    <p>aaaaaaaaaaaaaaaaaai</p>
-  </div>
+  
+    <VueFinalModal bg-primary v-model="showModal">
+      <CheckoutModal />
+    </VueFinalModal>
 
+  
  
 </template>
 
